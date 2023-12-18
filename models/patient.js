@@ -1,21 +1,6 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-
-const emergencyContactSchema = new Schema ({
-    name:{
-        type: String,
-    },
-
-    contact: {
-        type: Number,
-    },
-
-    relation: {
-        type: String
-    }
-});
-
 //create PatientList Schema & model
 const PatientSchema = new Schema({
     patientId: {
@@ -26,7 +11,7 @@ const PatientSchema = new Schema({
         type: String,
         required: [true, 'surname field is required']
     },
-    othernames: {
+    otherNames: {
         type: String,
         required: [true, 'othernames field is required']
     },
@@ -38,7 +23,15 @@ const PatientSchema = new Schema({
         type: String,
         required: [true, 'residentialAddress field is required']
     },
-    emergencyContact:emergencyContactSchema,
+    emergencyName: {
+        type: String,
+    },
+    emergencyContact: {
+        type: String,
+    },
+    emergencyContactRelationship: {
+        type: String,
+    },
 });
 
 //specify the actual name of the collection to be created ('patient')
